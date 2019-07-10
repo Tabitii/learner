@@ -194,76 +194,24 @@
         </nav>
         <!-- End of Topbar -->
 
+
         <!-- Begin Page Content -->
-        <div class="card text-center">
-          <div class="card-header">
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Choose your subject</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="container-fluid">
+        <div class="container-fluid">
 
-              <script type="text/javascript">
-              var c=0;
-              var t;
-              var timer_is_on=0;
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
-              function timedCount()
-              {
-              document.getElementById('txt').value=c;
-              c=c+1;
-              t=setTimeout("timedCount()",1000);
-              }
-
-              function doTimer()
-              {
-              if (!timer_is_on)
-                {
-                timer_is_on=1;
-                timedCount();
-                }
-              }
-
-              function stopCount()
-              {
-              clearTimeout(t);
-              timer_is_on=0;
-              }
-              </script>
-              <form>
-              <input type="button" class="btn btn-primary btn-sm" value="Start count!" onclick="doTimer()" />
-              <input type="text" id="txt" />
-              <input type="button" class="btn btn-primary btn-sm" value="Stop count!" onclick="stopCount()" />
-              </form>
-              <p>
-              Click on the "Start count!" button above to start the timer. The input field will count forever, starting at 0. Click on the "Stop count!" button to stop the counting. Click on the "Start count!" button to start the timer again.
-              </p>
-          </div>
-          <div class="card-footer text-muted">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-          <a href="https://www.gifki.org/cat-pesochnie-chasi-1261.htm"><img src="https://www.gifki.org/data/media/1261/pesochnye-chasy-animatsionnaya-kartinka-0003.gif" border="0" alt="pesochnye-chasy-animatsionnaya-kartinka-0003" /></a>
-
-          </div>
         </div>
+        <!-- /.container-fluid -->
 
-
-
+      </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; learner.com 2019</span>
+            <span>Copyright &copy; Your Website 2019</span>
           </div>
         </div>
       </footer>
@@ -308,14 +256,6 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-
-  <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
-  <script src="js/demo/chart-bar-demo.js"></script>
 
 </body>
 
