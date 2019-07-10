@@ -201,34 +201,32 @@
           <h1 class="h3 mb-4 text-gray-800">Add new subject</h1>
 
           <div class="row">
-            <form>
+            <form action="add_sub.php" method="POST">
               <div class="form-group-center">
-                <label for="exampleInputEmail1">Name</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name of a subject">
-                <small id="emailHelp" class="form-text text-muted">You can enter whatever you like.</small>
+                <label for="exampleInputName1">Name</label>
+                <input type="text" name= "name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name of a subject">
+                <small id="nameHelp" class="form-text text-muted">You can enter whatever you like.</small>
               </div>
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Select main category</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>World around</option>
-                  <option>Mathematics</option>
+                <select class="form-control" id="exampleFormControlSelect1" name="category">
+                  <option>Maths</option>
                   <option>Russian</option>
+                  <option>Programming</option>
                   <option>English</option>
-                  <option>Home</option>
-                  <option>Computer</option>
+                  <option>Environment </option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="exampleFormControlInput1">Plan hours</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="10">
+                <input type="number" name= "hours" class="form-control" id="exampleFormControlInput1" placeholder="10">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Comments</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name= "comments"></textarea>
               </div>
           <button type="submit" class="btn btn-primary">Submit</button>
           </form>
-
 
 
 
@@ -239,7 +237,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; learner.com 2019</span>
           </div>
         </div>
       </footer>
