@@ -52,53 +52,52 @@
 
           <!-- Heading -->
           <div class="sidebar-heading">
-            Interface
+            Plan my subjects
           </div>
-
-          <!-- Nav Item - Pages Collapse Menu -->
+          <!-- Nav Item - Charts -->
           <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-              <i class="fa fa-list-ol"></i>
-              <span>Subjects</span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Edit subjects:</h6>
-                <a class="collapse-item" href="add_subject.html">Add</a>
-                <a class="collapse-item" href="view_subjects.html">View</a>
-                <a class="collapse-item" href="links.html">Links</a>
-              </div>
-            </div>
+            <a class="nav-link" href="add_subject.html">
+              <i class="fa fa-plus"></i>
+              <span>Add new subject in plan</span></a>
           </li>
 
-          <!-- Nav Item - Utilities Collapse Menu -->
+          <!-- Nav Item - Charts -->
           <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+            <a class="nav-link" href="view_subjects.html">
               <i class="fa fa-list-ol"></i>
-              <span>Plan</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Plan your learning:</h6>
-                <a class="collapse-item" href="want_to_learn.html">Want to learn</a>
-                <a class="collapse-item" href="add_plan.html">Add</a>
-                <a class="collapse-item" href="view_plan.html">View Plan</a>
-                <a class="collapse-item" href="links_plan.html">Links</a>
-              </div>
-            </div>
+              <span>View all subjects</span></a>
           </li>
+
+
 
           <!-- Divider -->
           <hr class="sidebar-divider">
+          <!-- Heading -->
+          <div class="sidebar-heading">
+            Do my Plan
+          </div>
 
+          <!-- Nav Item - Charts -->
+          <li class="nav-item">
+            <a class="nav-link" href="links.html">
+              <i class="fa fa-link"></i>
+              <span>Links to do subjects</span></a>
+          </li>
 
           <!-- Nav Item - Charts -->
           <li class="nav-item">
             <a class="nav-link" href="timer.html">
               <i class="fa fa-play"></i>
-              <span>Timer</span></a>
+              <span>Timer to do subjects</span></a>
           </li>
 
+
+          <!-- Divider -->
+          <hr class="sidebar-divider">
+          <!-- Heading -->
+          <div class="sidebar-heading">
+            I'he already done
+          </div>
           <!-- Nav Item - Tables -->
           <li class="nav-item">
             <a class="nav-link" href="learner_list.html">
