@@ -17,6 +17,58 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <script>
+
+
+  window.onload = function(){
+
+    function timer(){
+
+	       var hour = document.getElementById('hour').innerHTML;
+	       var minute = document.getElementById('minute').innerHTML;
+	       var second = document.getElementById('second').innerHTML;
+	       var end = false;
+
+	       if( second > 0 ) second--;
+	       else{
+		         second = 59;
+
+		         if( minute > 0 ) minute--;
+		         else{
+			            second = 59;
+
+			       if( hour > 0 ) hour--;
+			       else end = true;
+		         }
+	        }
+
+	        if(end){
+		        clearInterval(intervalID);
+		        alert("Таймер сработал!");
+	        }else{
+		        document.getElementById('hour').innerHTML = hour;
+		        document.getElementById('minute').innerHTML = minute;
+		        document.getElementById('second').innerHTML = second;
+	        }
+    }
+
+    window.intervalID = setInterval(timer, 1000);
+}
+  </script>
+  <style>
+  #timer{
+  margin: 20px auto;
+  text-align: center;
+  color: #333;
+  font-family: fantasy;
+  font-size: 100px;
+  cursor: default;
+  }
+
+  #timer div{
+  display: inline;
+  }
+  </style>
 
 </head>
 
@@ -193,67 +245,61 @@
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
-        <div class="card text-center">
-          <div class="card-header">
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Choose your subject</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-          </div>
-          <div class="card-body">
+        <div class="card-body">
             <div class="container-fluid">
 
-              <script type="text/javascript">
-              var c=0;
-              var t;
-              var timer_is_on=0;
-
-              function timedCount()
-              {
-              document.getElementById('txt').value=c;
-              c=c+1;
-              t=setTimeout("timedCount()",1000);
-              }
-
-              function doTimer()
-              {
-              if (!timer_is_on)
-                {
-                timer_is_on=1;
-                timedCount();
-                }
-              }
-
-              function stopCount()
-              {
-              clearTimeout(t);
-              timer_is_on=0;
-              }
-              </script>
-              <form>
-              <input type="button" class="btn btn-primary btn-sm" value="Start count!" onclick="doTimer()" />
-              <input type="text" id="txt" />
-              <input type="button" class="btn btn-primary btn-sm" value="Stop count!" onclick="stopCount()" />
-              </form>
-              <p>
-              Click on the "Start count!" button above to start the timer. The input field will count forever, starting at 0. Click on the "Stop count!" button to stop the counting. Click on the "Start count!" button to start the timer again.
-              </p>
+              <div id="timer">
+		              <div id="hour">0</div>&nbsp;:
+		              <div id="minute">30</div>&nbsp;:
+		              <div id="second">00</div>
+              </div>
+            </div>
+        </div>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+        <!-- Approach -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Add time, subject done</h6>
           </div>
-          <div class="card-footer text-muted">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-          <a href="https://www.gifki.org/cat-pesochnie-chasi-1261.htm"><img src="https://www.gifki.org/data/media/1261/pesochnye-chasy-animatsionnaya-kartinka-0003.gif" border="0" alt="pesochnye-chasy-animatsionnaya-kartinka-0003" /></a>
+          <div class="card-body">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-4 text-gray-800"><div class="row">
+              <form action="add_time.php" method="POST">
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Select subject you do during this 30 minutes</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name= "subject">
+                    <?php
+                     $connect = mysqli_connect("localhost", "root", "", "learnerdb");
+                     $query ="SELECT name FROM subjects";
+                     $result = mysqli_query($connect, $query);
+                     while(list($category) = mysqli_fetch_row($result)){
+                       echo '<option value="'.$category.'">'.$category.'</option>';
+                     }
+                     mysqli_close($connect);
+                     ?>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">How many lessons?</label>
+                  <input type="number" name= "lesson" class="form-control" id="exampleFormControlInput1" placeholder="1">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">How many time does it take in minutes?</label>
+                  <input type="number" name= "time" class="form-control" id="exampleFormControlInput1" placeholder="30">
+                </div>
+            <button type="submit" class="btn btn-primary">Lesson done!</button>
+            </form>
+
+
+
+          </div></h1>
+
 
           </div>
         </div>
-
 
 
       <!-- End of Main Content -->

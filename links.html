@@ -2,7 +2,11 @@
 <html lang="en">
 
 <head>
-
+  <script src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <script src="/js/jquery.dataTables.min.js"></script>
+  <script src="/js/dataTables.bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/css/dataTables.bootstrap.min.css" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -196,11 +200,87 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+          <!-- DataTales Example -->
+          <?php
+           $connect2 = mysqli_connect("localhost", "root", "", "learnerdb");
+           $query2 ="SELECT * FROM links ORDER BY ID";
+           $result2 = mysqli_query($connect2, $query2);
+           ?>
 
+
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Links Table</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Link</th>
+                    </tr>
+                  </thead>
+                  <?php
+                  while($row = mysqli_fetch_array($result2))
+                  {
+                        echo '
+                        <tr>
+                              <td>'.$row["id"].'</td>
+                              <td>'.$row["name2"].'</td>
+                              <td>'.$row["link"].'</td>
+                              </tr>
+                              ';
+                  }
+                  ?>
+              </table>
+            </div>
+          </div>
+          </div>
+
+
+
+      <!-- Approach -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Add new link</h6>
+        </div>
+        <div class="card-body">
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+          <h1 class="h3 mb-4 text-gray-800"><div class="row">
+            <form action="add_link.php" method="POST">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Select subject</label>
+                <select class="form-control" id="exampleFormControlSelect1" name= "name2">
+                  <?php
+                   $connect = mysqli_connect("localhost", "root", "", "learnerdb");
+                   $query ="SELECT name FROM subjects";
+                   $result = mysqli_query($connect, $query);
+                   while(list($category) = mysqli_fetch_row($result)){
+                     echo '<option value="'.$category.'">'.$category.'</option>';
+                   }
+                   mysqli_close($connect);
+                   ?>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Add link</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name= "link"></textarea>
+              </div>
+          <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+
+
+
+        </div></h1>
+
 
         </div>
+      </div>
+
+    </div>
         <!-- /.container-fluid -->
 
       </div>
@@ -210,7 +290,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; learner.com 2019</span>
           </div>
         </div>
       </footer>

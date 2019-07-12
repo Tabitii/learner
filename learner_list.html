@@ -1,3 +1,9 @@
+<?php
+ $connect = mysqli_connect("localhost", "root", "", "learnerdb");
+ $query ="SELECT * FROM lesson_time ORDER BY ID";
+ $result = mysqli_query($connect, $query);
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -197,13 +203,57 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
         </div>
         <!-- /.container-fluid -->
+        <!-- Approach -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">View all your subjects done</h6>
+          </div>
+          <div class="card-body">
+            <p>Here you can see all your work done. How many subjects and time in minutes you learn it.</p>
+
+          </div>
+        </div>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Last activity.</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Subject</th>
+                    <th>Lessons</th>
+                    <th>Time</th>
+                  </tr>
+                </thead>
+                <?php
+                while($row = mysqli_fetch_array($result))
+                {
+                      echo '
+                      <tr>
+                            <td>'.$row["id"].'</td>
+                            <td>'.$row["subject"].'</td>
+                            <td>'.$row["lesson"].'</td>
+                            <td>'.$row["time"].'</td>
+                            </tr>
+                            ';
+                }
+                ?>
+            </table>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="d-none d-sm-inline-block dddddddddddddddddddddbtn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Download Report</a>
 
       </div>
+  
       <!-- End of Main Content -->
 
       <!-- Footer -->
