@@ -4,7 +4,7 @@ session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
+    header("location: http://learner.abtz.ru/login.php");
     exit;
 }
 ?>
@@ -22,11 +22,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <title>Learner</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="http://learner.abtz.ru/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="http://learner.abtz.ru/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -51,7 +51,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="http://learner.abtz.ru/index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -65,14 +65,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       </div>
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="add_subject.html">
+        <a class="nav-link" href="http://learner.abtz.ru/add_subject.html">
           <i class="fa fa-plus"></i>
           <span>Add new subject in plan</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="view_subjects.html">
+        <a class="nav-link" href="http://learner.abtz.ru/view_subjects.html">
           <i class="fa fa-list-ol"></i>
           <span>View all subjects</span></a>
       </li>
@@ -88,14 +88,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="links.html">
+        <a class="nav-link" href="http://learner.abtz.ru/links.html">
           <i class="fa fa-link"></i>
           <span>Links to do subjects</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="timer.html">
+        <a class="nav-link" href="http://learner.abtz.ru/timer.html">
           <i class="fa fa-play"></i>
           <span>Timer to do subjects</span></a>
       </li>
@@ -109,7 +109,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       </div>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="learner_list.html">
+        <a class="nav-link" href="http://learner.abtz.ru/learner_list.html">
           <i class="fa fa-book"></i>
           <span>Learner's List</span></a>
       </li>
@@ -178,12 +178,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="reset-password.php">
+                <a class="dropdown-item" href="http://learner.abtz.ru/reset-password.php">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Reset your password
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="http://learner.abtz.ru/logout.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -217,8 +217,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                   <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
                 </div>
                 <p>
-                  <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-                  <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
+                  <a href="http://learner.abtz.ru/reset-password.php" class="btn btn-warning">Reset Your Password</a>
+                  <a href="http://learner.abtz.ru/logout.php" class="btn btn-danger">Sign Out of Your Account</a>
                 </p>
                 <p>One must manage their self-directed learning. Measure time< manage your subjects. See the list of all your learnings. Plan the next step.</p>
                 <p class="mb-0">During learning something new, you should scale your success!</p>
@@ -226,10 +226,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               <div class="alert alert-primary" role="alert">
                 <ul class="list-group">
                   <li class="list-group-item active">How to wrok with this APP:</li>
-                  <li class="list-group-item">1) <a href="/add_subject.html" class="alert-link">Add your subjects</a> to Plan</li>
-                  <li class="list-group-item">2) Start to learn and open <a href="/timer.html" class="alert-link">Timer's page</a></li>
+                  <li class="list-group-item">1) <a href="http://learner.abtz.ru/add_subject.html" class="alert-link">Add your subjects</a> to Plan</li>
+                  <li class="list-group-item">2) Start to learn and open <a href="http://learner.abtz.ru/timer.html" class="alert-link">Timer's page</a></li>
                   <li class="list-group-item">3) When timer is over submit your success with done subject+time</li>
-                  <li class="list-group-item">4) View all your subjects and done learnings in <a href="/learner_list.html" class="alert-link">List</a></li>
+                  <li class="list-group-item">4) View all your subjects and done learnings in <a href="http://learner.abtz.ru/learner_list.html" class="alert-link">List</a></li>
                   <li class="list-group-item">4) Downloan additional information and documantation about your learning's List</li>
                 </ul>
 
@@ -245,7 +245,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               </div>
               <div class="card-body">
                 <div class="text-center">
-                  <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_learning_2q1h.svg" alt="">
+                  <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="http://learner.abtz.ru/img/undraw_learning_2q1h.svg" alt="">
                 </div>
                 <p>We learn all life, we learn together, we learn and success.</p>
 
@@ -292,18 +292,18 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="http://learner.abtz.ru/login.html">Logout</a>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="http://learner.abtz.ru/vendor/jquery/jquery.min.js"></script>
+  <script src="http://learner.abtz.ru/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="http://learner.abtz.ru/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
