@@ -17,10 +17,10 @@ $hours = $_POST['hours'];
 $comments = $_POST['comments'];
 
 // Параметры для подключения
-$db_host = "localhost";
-$db_user = "root"; // Логин БД
-$db_password = ""; // Пароль БД
-$db_base = 'learnerdb'; // Имя БД
+$db_host = "p240539.mysql.ihc.ru";
+$db_user = "p240539_learn"; // Логин БД
+$db_password = "akF25366ct"; // Пароль БД
+$db_base = 'p240539_learn'; // Имя БД
 $db_table = "subjects"; // Имя Таблицы БД
 
 // Подключение к базе данных

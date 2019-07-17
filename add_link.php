@@ -16,10 +16,10 @@ $link = $_POST['link'];
 
 
 // Параметры для подключения
-$db_host2 = "localhost";
-$db_user2 = "root"; // Логин БД
-$db_password2 = ""; // Пароль БД
-$db_base2 = 'learnerdb'; // Имя БД
+$db_host = "p240539.mysql.ihc.ru";
+$db_user = "p240539_learn"; // Логин БД
+$db_password = "akF25366ct"; // Пароль БД
+$db_base = 'p240539_learn'; // Имя БД
 $db_table2 = "links"; // Имя Таблицы БД
 
 // Подключение к базе данных

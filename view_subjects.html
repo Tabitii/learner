@@ -1,5 +1,5 @@
 <?php
- $connect = mysqli_connect("localhost", "root", "", "learnerdb");
+ $connect = mysqli_connect("p240539.mysql.ihc.ru", "p240539_learn", "akF25366ct", "p240539_learn");
  $query ="SELECT * FROM subjects ORDER BY ID";
  $result = mysqli_query($connect, $query);
  ?>
@@ -297,7 +297,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="http://learner.abtz.ru/login.php">Logout</a>
         </div>
       </div>
     </div>

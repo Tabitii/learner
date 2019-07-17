@@ -276,6 +276,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                      $query ="SELECT name FROM subjects";
                      $result = mysqli_query($connect, $query);
                      while(list($category) = mysqli_fetch_row($result)){
+                     {
                        echo '<option value="'.$category.'">'.$category.'</option>';
                      }
                      mysqli_close($connect);
