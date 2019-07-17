@@ -2,7 +2,7 @@
 // ----------------------------конфигурация-------------------------- //
 
 
-$backurl="/learner/timer.html";  // На какую страничку переходит после отправки письма
+$backurl="http://learner.abtz.ru/timer.html";  // На какую страничку переходит после отправки письма
 
 //---------------------------------------------------------------------- //
 
@@ -17,10 +17,10 @@ $time = $_POST['time'];
 
 
 // Параметры для подключения
-$db_host = "localhost";
-$db_user = "root"; // Логин БД
-$db_password = ""; // Пароль БД
-$db_base = 'learnerdb'; // Имя БД
+$db_host = "p240539.mysql.ihc.ru";
+$db_user = "p240539_learn"; // Логин БД
+$db_password = "akF25366ct"; // Пароль БД
+$db_base = 'p240539_learn'; // Имя БД
 $db_table = "lesson_time"; // Имя Таблицы БД
 
 // Подключение к базе данных
@@ -43,7 +43,7 @@ print "<script language='Javascript'><!--
 function reload() {location = \"$backurl\"}; setTimeout('reload()', 6000);
 //--></script>
 <p>Предмет: $subject</p>
-<p>КОличество урокой: $lesson</p>
+<p>Количество уроков: $lesson</p>
 <p>Часы: $time</p>
 <p>Сообщение отправлено! Подождите, сейчас вы будете перенаправлены на главную страницу...</p>";
 exit;
