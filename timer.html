@@ -1,13 +1,3 @@
-<?php
-// Initialize the session
-session_start();
-
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,9 +93,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="http://learner.abtz.ru/index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Панель управления</span></a>
       </li>
 
       <!-- Divider -->
@@ -113,20 +103,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Plan my subjects
+        Планирую
       </div>
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="add_subject.html">
+        <a class="nav-link" href="http://learner.abtz.ru/add_subject.html">
           <i class="fa fa-plus"></i>
-          <span>Add new subject in plan</span></a>
+          <span>Добавить новый предмет изучения</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="view_subjects.html">
+        <a class="nav-link" href="http://learner.abtz.ru/view_subjects.html">
           <i class="fa fa-list-ol"></i>
-          <span>View all subjects</span></a>
+          <span>Посмотреть все предметы</span></a>
       </li>
 
 
@@ -135,21 +125,21 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        Do my Plan
+        Изучаю
       </div>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="links.html">
+        <a class="nav-link" href="http://learner.abtz.ru/links.html">
           <i class="fa fa-link"></i>
-          <span>Links to do subjects</span></a>
+          <span>Ссылки</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="timer.html">
+        <a class="nav-link" href="http://learner.abtz.ru/timer.html">
           <i class="fa fa-play"></i>
-          <span>Timer to do subjects</span></a>
+          <span>Таймер урока</span></a>
       </li>
 
 
@@ -157,13 +147,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        I'he already done
+        Уже сделано!
       </div>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="learner_list.html">
+        <a class="nav-link" href="http://learner.abtz.ru/learner_list.html">
           <i class="fa fa-book"></i>
-          <span>Learner's List</span></a>
+          <span>Результаты</span></a>
       </li>
 
       <!-- Divider -->
@@ -230,14 +220,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="reset-password.php">
+                <a class="dropdown-item" href="http://learner.abtz.ru/reset-password.php">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Reset your password
+                  Изменить пароль
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="http://learner.abtz.ru/logout.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
+                  Выйти
                 </a>
               </div>
             </li>

@@ -53,7 +53,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <li class="nav-item active">
         <a class="nav-link" href="http://learner.abtz.ru/index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Панель управления</span></a>
       </li>
 
       <!-- Divider -->
@@ -61,20 +61,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Plan my subjects
+        Планирую
       </div>
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/add_subject.html">
           <i class="fa fa-plus"></i>
-          <span>Add new subject in plan</span></a>
+          <span>Добавить новый предмет изучения</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/view_subjects.html">
           <i class="fa fa-list-ol"></i>
-          <span>View all subjects</span></a>
+          <span>Посмотреть все предметы</span></a>
       </li>
 
 
@@ -83,21 +83,21 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        Do my Plan
+        Изучаю
       </div>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/links.html">
           <i class="fa fa-link"></i>
-          <span>Links to do subjects</span></a>
+          <span>Ссылки</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/timer.html">
           <i class="fa fa-play"></i>
-          <span>Timer to do subjects</span></a>
+          <span>Таймер урока</span></a>
       </li>
 
 
@@ -105,13 +105,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        I'he already done
+        Уже сделано!
       </div>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/learner_list.html">
           <i class="fa fa-book"></i>
-          <span>Learner's List</span></a>
+          <span>Результаты</span></a>
       </li>
 
       <!-- Divider -->
@@ -180,12 +180,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="http://learner.abtz.ru/reset-password.php">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Reset your password
+                  Изменить пароль
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="http://learner.abtz.ru/logout.php" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
+                  Выйти
                 </a>
               </div>
             </li>
@@ -201,7 +201,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800">Панель управления</h1>
             <a href="#" class="d-none d-sm-inline-block dddddddddddddddddddddbtn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Learner's Report</a>
           </div>
 
@@ -210,27 +210,27 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <!-- Approach -->
             <div class="card shadow mb-4">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Manage time and subjects</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Управляй своими предметами и временем обучения</h6>
               </div>
               <div class="card-body">
                 <div class="page-header">
-                  <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
+                  <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Добро пожаловать в приложение.</h1>
                 </div>
                 <p>
-                  <a href="http://learner.abtz.ru/reset-password.php" class="btn btn-warning">Reset Your Password</a>
-                  <a href="http://learner.abtz.ru/logout.php" class="btn btn-danger">Sign Out of Your Account</a>
+                  <a href="http://learner.abtz.ru/reset-password.php" class="btn btn-warning">Обновить свой пароль</a>
+                  <a href="http://learner.abtz.ru/logout.php" class="btn btn-danger">Выйти из своей учетной записи</a>
                 </p>
-                <p>One must manage their self-directed learning. Measure time< manage your subjects. See the list of all your learnings. Plan the next step.</p>
+                <p>Изучая необходимые предметы нужно уметь контролировать в длительной перспективе что и сколько изучаешь. Фиксируй время обучения, добавляй свои предметы, смотри и скачивай свои результаты, планируй свои следующие шаги.</p>
                 <p class="mb-0">During learning something new, you should scale your success!</p>
               </div>
               <div class="alert alert-primary" role="alert">
                 <ul class="list-group">
-                  <li class="list-group-item active">How to wrok with this APP:</li>
-                  <li class="list-group-item">1) <a href="http://learner.abtz.ru/add_subject.html" class="alert-link">Add your subjects</a> to Plan</li>
-                  <li class="list-group-item">2) Start to learn and open <a href="http://learner.abtz.ru/timer.html" class="alert-link">Timer's page</a></li>
-                  <li class="list-group-item">3) When timer is over submit your success with done subject+time</li>
-                  <li class="list-group-item">4) View all your subjects and done learnings in <a href="http://learner.abtz.ru/learner_list.html" class="alert-link">List</a></li>
-                  <li class="list-group-item">4) Downloan additional information and documantation about your learning's List</li>
+                  <li class="list-group-item active">Как работать с этим приложением:</li>
+                  <li class="list-group-item">1) <a href="http://learner.abtz.ru/add_subject.html" class="alert-link">Добавить свои предметы изучения</a> и распланируй ближайшие шаги</li>
+                  <li class="list-group-item">2) Начни обучение, открыв <a href="http://learner.abtz.ru/timer.html" class="alert-link">Таймер, обратный отсчет до конца занятия</a></li>
+                  <li class="list-group-item">3) Когда таймер закончится зафиксируй результат Предмет+ время изучения в базу приложения</li>
+                  <li class="list-group-item">4) Смотри все предметы и достигнутый результат на<a href="http://learner.abtz.ru/learner_list.html" class="alert-link">странице результатов обучающегося</a></li>
+                  <li class="list-group-item">4) Загрузи допольнительные документы (справки ПА, сертификаты) на страницу своих результатов</li>
                 </ul>
 
 
@@ -241,13 +241,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
             <div class="card shadow mb-4">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Learning is a habit!</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Обучение это привычка!</h6>
               </div>
               <div class="card-body">
                 <div class="text-center">
                   <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="http://learner.abtz.ru/img/undraw_learning_2q1h.svg" alt="">
                 </div>
-                <p>We learn all life, we learn together, we learn and success.</p>
+                <p>МЫ учимся всю жизнь, мы учимся вместеБ мы учимся и видим результат!</p>
 
               </div>
             </div>
