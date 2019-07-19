@@ -27,7 +27,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
   <!-- Custom styles for this template-->
   <link href="http://learner.abtz.ru/css/sb-admin-2.min.css" rel="stylesheet">
-
+  <link rel="icon" href="http://learner.abtz.ru/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="http://learner.abtz.ru/favicon.png" type="image/x-icon">
 </head>
 
 <body id="page-top">
@@ -40,8 +41,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://learner.abtz.ru/index.php">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Learner <sup>1</sup></div>
       </a>
