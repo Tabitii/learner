@@ -28,7 +28,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <!-- Custom styles for this template-->
   <link href="http://learner.abtz.ru/css/sb-admin-2.min.css" rel="stylesheet">
   <link rel="icon" href="http://learner.abtz.ru/favicon.png" type="image/x-icon">
-  <link rel="shortcut icon" href="http://learner.abtz.ru/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="http://learner.abtz.ru/img/favicon.ico" type="image/x-icon">
 </head>
 
 <body id="page-top">

@@ -1,3 +1,8 @@
+<?php
+ $connect = mysqli_connect("p240539.mysql.ihc.ru", "p240539_learn", "akF25366ct", "p240539_learn");
+ $query ="SELECT * FROM subjects ORDER BY ID";
+ $result = mysqli_query($connect, $query);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +22,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="http://learner.abtz.ru/img/favicon.ico" type="image/x-icon">
 
 </head>
 
@@ -188,11 +194,56 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+          <!-- Approach -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Посмотреть все предметы</h6>
+          </div>
+          <div class="card-body">
+            <p>Здесь вы можете посмотреть все распланированные предметы для изучения</p>
 
+          </div>
         </div>
-        <!-- /.container-fluid -->
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Список всех предметов</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>№</th>
+                    <th>Название предмета</th>
+                    <th>Категория</th>
+                    <th>Часы изучения</th>
+                    <th>Комментарии</th>
+                  </tr>
+                </thead>
+                <?php
+                while($row = mysqli_fetch_array($result))
+                {
+                      echo '
+                      <tr>
+                            <td>'.$row["id"].'</td>
+                            <td>'.$row["name"].'</td>
+                            <td>'.$row["category"].'</td>
+                            <td>'.$row["hours"].'</td>
+                            <td>'.$row["comments"].'</td>
+                            </tr>
+                            ';
+                }
+                ?>
+            </table>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="d-none d-sm-inline-block dddddddddddddddddddddbtn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Скачать</a>
+
+      </div>
+      <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
