@@ -1,8 +1,3 @@
-<?php
- $connect = mysqli_connect("p240539.mysql.ihc.ru", "p240539_learn", "akF25366ct", "p240539_learn");
- $query ="SELECT * FROM subjects ORDER BY ID";
- $result = mysqli_query($connect, $query);
- ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +17,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-  <link rel="shortcut icon" href="http://learner.abtz.ru/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://learner.abtz.ru/img/favicon.ico" type="image/x-icon">
 
 </head>
 
@@ -36,8 +31,8 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Learner <sup>1</sup></div>
       </a>
@@ -49,7 +44,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="http://learner.abtz.ru/index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Панель управления</span></a>
+          <span>Панель</span></a>
       </li>
 
       <!-- Divider -->
@@ -57,20 +52,20 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Планирую
+        ПРЕДМЕТЫ
       </div>
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/add_subject.html">
           <i class="fa fa-plus"></i>
-          <span>Добавить новый предмет изучения</span></a>
+          <span>Добавить</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/view_subjects.html">
           <i class="fa fa-list-ol"></i>
-          <span>Посмотреть все предметы</span></a>
+          <span>Список</span></a>
       </li>
 
 
@@ -79,7 +74,7 @@
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        Изучаю
+        ОБУЧЕНИЕ
       </div>
 
       <!-- Nav Item - Charts -->
@@ -93,7 +88,7 @@
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/timer.html">
           <i class="fa fa-play"></i>
-          <span>Таймер урока</span></a>
+          <span>Таймер</span></a>
       </li>
 
 
@@ -101,15 +96,20 @@
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        Уже сделано!
+        РЕЗУЛЬТАТ
       </div>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/learner_list.html">
           <i class="fa fa-book"></i>
-          <span>Результаты</span></a>
+          <span>Изучено</span></a>
       </li>
-
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="http://learner.abtz.ru/docs.html">
+          <i class="fa-file-pdf-o"></i>
+          <span>Документы</span></a>
+      </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -174,6 +174,11 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="http://learner.abtz.ru/profile.html">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Профиль
+                </a>
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="http://learner.abtz.ru/reset-password.php">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                   Изменить пароль
@@ -194,56 +199,11 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Approach -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Посмотреть все предметы</h6>
-          </div>
-          <div class="card-body">
-            <p>Здесь вы можете посмотреть все распланированные предметы для изучения</p>
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
 
-          </div>
         </div>
-
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Список всех предметов</h6>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>№</th>
-                    <th>Название предмета</th>
-                    <th>Категория</th>
-                    <th>Часы изучения</th>
-                    <th>Комментарии</th>
-                  </tr>
-                </thead>
-                <?php
-                while($row = mysqli_fetch_array($result))
-                {
-                      echo '
-                      <tr>
-                            <td>'.$row["id"].'</td>
-                            <td>'.$row["name"].'</td>
-                            <td>'.$row["category"].'</td>
-                            <td>'.$row["hours"].'</td>
-                            <td>'.$row["comments"].'</td>
-                            </tr>
-                            ';
-                }
-                ?>
-            </table>
-          </div>
-        </div>
-      </div>
-      <a href="#" class="d-none d-sm-inline-block dddddddddddddddddddddbtn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Скачать</a>
-
-      </div>
-      <!-- /.container-fluid -->
+        <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
