@@ -17,6 +17,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="http://learner.abtz.ru/img/favicon.ico" type="image/x-icon">
   <script>
 
 
@@ -82,8 +83,8 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Learner <sup>1</sup></div>
       </a>
@@ -95,7 +96,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="http://learner.abtz.ru/index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Панель управления</span></a>
+          <span>Панель</span></a>
       </li>
 
       <!-- Divider -->
@@ -103,20 +104,20 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Планирую
+        ПРЕДМЕТЫ
       </div>
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/add_subject.html">
           <i class="fa fa-plus"></i>
-          <span>Добавить новый предмет изучения</span></a>
+          <span>Добавить</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/view_subjects.html">
           <i class="fa fa-list-ol"></i>
-          <span>Посмотреть все предметы</span></a>
+          <span>Список</span></a>
       </li>
 
 
@@ -125,7 +126,7 @@
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        Изучаю
+        ОБУЧЕНИЕ
       </div>
 
       <!-- Nav Item - Charts -->
@@ -139,7 +140,7 @@
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/timer.html">
           <i class="fa fa-play"></i>
-          <span>Таймер урока</span></a>
+          <span>Таймер</span></a>
       </li>
 
 
@@ -147,15 +148,20 @@
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        Уже сделано!
+        РЕЗУЛЬТАТ
       </div>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/learner_list.html">
           <i class="fa fa-book"></i>
-          <span>Результаты</span></a>
+          <span>Изучено</span></a>
       </li>
-
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="http://learner.abtz.ru/docs.html">
+          <i class="fa-file-pdf-o"></i>
+          <span>Документы</span></a>
+      </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -242,7 +248,7 @@
 
               <div id="timer">
 		              <div id="hour">0</div>&nbsp;:
-		              <div id="minute">30</div>&nbsp;:
+		              <div id="minute">35</div>&nbsp;:
 		              <div id="second">00</div>
               </div>
             </div>
@@ -252,38 +258,39 @@
         <!-- Approach -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Add time, subject done</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Добавить свои достижения в список</h6>
           </div>
           <div class="card-body">
             <!-- Page Heading -->
             <h1 class="h3 mb-4 text-gray-800"><div class="row">
               <form action="add_time.php" method="POST">
                 <div class="form-group">
-                  <label for="exampleFormControlSelect1">Select subject you do during this 30 minutes</label>
+                  <label for="exampleFormControlSelect1">Выбрать какой предмет изучили</label>
                   <select class="form-control" id="exampleFormControlSelect1" name= "subject">
                     <?php
-                     $connect = mysqli_connect("localhost", "root", "", "learnerdb");
+                     $connect = mysqli_connect("p240539.mysql.ihc.ru", "p240539_learn", "akF25366ct", "p240539_learn");
                      $query ="SELECT name FROM subjects";
                      $result = mysqli_query($connect, $query);
                      while(list($category) = mysqli_fetch_row($result)){
-                     {
-                       echo '<option value="'.$category.'">'.$category.'</option>';
-                     }
+                        {
+                            echo '<option value="'.$category.'">'.$category.'</option>';
+                        }
                      mysqli_close($connect);
+                     }
                      ?>
                     </select>
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleFormControlTextarea1">How many lessons?</label>
+                  <label for="exampleFormControlTextarea1">Сколько уроков (1 урок=30 минут)?</label>
                   <input type="number" name= "lesson" class="form-control" id="exampleFormControlInput1" placeholder="1">
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleFormControlTextarea1">How many time does it take in minutes?</label>
+                  <label for="exampleFormControlTextarea1">Сколько в минутах проходило изучение?</label>
                   <input type="number" name= "time" class="form-control" id="exampleFormControlInput1" placeholder="30">
                 </div>
-            <button type="submit" class="btn btn-primary">Lesson done!</button>
+            <button type="submit" class="btn btn-primary">Добавить</button>
             </form>
 
 

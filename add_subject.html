@@ -17,7 +17,8 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+  <link rel="icon" href="http://learner.abtz.ru/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="http://learner.abtz.ru/img/favicon.ico" type="image/x-icon">
 </head>
 
 <body id="page-top">
@@ -30,8 +31,8 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Learner <sup>1</sup></div>
       </a>
@@ -43,7 +44,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="http://learner.abtz.ru/index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Панель управления</span></a>
+          <span>Панель</span></a>
       </li>
 
       <!-- Divider -->
@@ -51,20 +52,20 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Планирую
+        ПРЕДМЕТЫ
       </div>
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/add_subject.html">
           <i class="fa fa-plus"></i>
-          <span>Добавить новый предмет изучения</span></a>
+          <span>Добавить</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/view_subjects.html">
           <i class="fa fa-list-ol"></i>
-          <span>Посмотреть все предметы</span></a>
+          <span>Список</span></a>
       </li>
 
 
@@ -73,7 +74,7 @@
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        Изучаю
+        ОБУЧЕНИЕ
       </div>
 
       <!-- Nav Item - Charts -->
@@ -87,7 +88,7 @@
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/timer.html">
           <i class="fa fa-play"></i>
-          <span>Таймер урока</span></a>
+          <span>Таймер</span></a>
       </li>
 
 
@@ -95,15 +96,20 @@
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        Уже сделано!
+        РЕЗУЛЬТАТ
       </div>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/learner_list.html">
           <i class="fa fa-book"></i>
-          <span>Результаты</span></a>
+          <span>Изучено</span></a>
       </li>
-
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="http://learner.abtz.ru/docs.html">
+          <i class="fa-file-pdf-o"></i>
+          <span>Документы</span></a>
+      </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -190,36 +196,36 @@
           <!-- Page Heading -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h1 class="h3 mb-4 text-gray-800">Add new subject</h1>
+              <h1 class="h3 mb-4 text-gray-800">Добавить новый предмет</h1>
             </div>
             <div class="card-body">
 
           <div class="row">
             <form action="add_sub.php" method="POST">
               <div class="form-group-center">
-                <label for="exampleInputName1">Name</label>
-                <input type="text" name= "name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name of a subject">
-                <small id="nameHelp" class="form-text text-muted">You can enter whatever you like.</small>
+                <label for="exampleInputName1">Название предмета</label>
+                <input type="text" name= "name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Введите название">
+                <small id="nameHelp" class="form-text text-muted">Ввыдеите свою формулироваку занятия</small>
               </div>
               <div class="form-group">
-                <label for="exampleFormControlSelect1">Select main category</label>
+                <label for="exampleFormControlSelect1">Категоря предмета</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="category">
-                  <option>Maths</option>
-                  <option>Russian</option>
-                  <option>Programming</option>
-                  <option>English</option>
-                  <option>Environment </option>
+                  <option>Математика</option>
+                  <option>Русский язык</option>
+                  <option>Английский язык</option>
+                  <option>Окружающий мир</option>
+                  <option>Другое</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Plan hours</label>
+                <label for="exampleFormControlInput1">Сколько часов планируете изучать?</label>
                 <input type="number" name= "hours" class="form-control" id="exampleFormControlInput1" placeholder="10">
               </div>
               <div class="form-group">
-                <label for="exampleFormControlTextarea1">Comments</label>
+                <label for="exampleFormControlTextarea1">Комментарии к предмету</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name= "comments"></textarea>
               </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Добавить</button>
           </form>
 
 

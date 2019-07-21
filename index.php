@@ -1,13 +1,19 @@
 <?php
-// Initialize the session
+ // Initialize the session
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: http://learner.abtz.ru/login.php");
+    header("location: /login.php");
     exit;
 }
 ?>
+<?php
+ $connect = mysqli_connect("p240539.mysql.ihc.ru", "p240539_learn", "akF25366ct", "p240539_learn");
+ $query ="SELECT * FROM subjects ORDER BY ID";
+ $result = mysqli_query($connect, $query);
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,11 +28,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <title>Learner</title>
 
   <!-- Custom fonts for this template-->
-  <link href="http://learner.abtz.ru/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="http://learner.abtz.ru/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://learner.abtz.ru/img/favicon.ico" type="image/x-icon">
 
 </head>
 
@@ -39,9 +46,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://learner.abtz.ru/index.php">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+        <div class="sidebar-brand-icon">
+          <i class="fas fa-chalkboard-teacher"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Learner <sup>1</sup></div>
       </a>
@@ -53,7 +60,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <li class="nav-item active">
         <a class="nav-link" href="http://learner.abtz.ru/index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Панель управления</span></a>
+          <span>Панель</span></a>
       </li>
 
       <!-- Divider -->
@@ -61,20 +68,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Планирую
+        ПРЕДМЕТЫ
       </div>
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/add_subject.html">
           <i class="fa fa-plus"></i>
-          <span>Добавить новый предмет изучения</span></a>
+          <span>Добавить</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/view_subjects.html">
           <i class="fa fa-list-ol"></i>
-          <span>Посмотреть все предметы</span></a>
+          <span>Список</span></a>
       </li>
 
 
@@ -83,7 +90,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        Изучаю
+        ОБУЧЕНИЕ
       </div>
 
       <!-- Nav Item - Charts -->
@@ -97,7 +104,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/timer.html">
           <i class="fa fa-play"></i>
-          <span>Таймер урока</span></a>
+          <span>Таймер</span></a>
       </li>
 
 
@@ -105,15 +112,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <hr class="sidebar-divider">
       <!-- Heading -->
       <div class="sidebar-heading">
-        Уже сделано!
+        РЕЗУЛЬТАТ
       </div>
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="http://learner.abtz.ru/learner_list.html">
           <i class="fa fa-book"></i>
-          <span>Результаты</span></a>
+          <span>Изучено</span></a>
       </li>
-
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="http://learner.abtz.ru/docs.html">
+          <i class="fa-file-pdf-o"></i>
+          <span>Документы</span></a>
+      </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -161,15 +173,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               </a>
 
 
-            <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
-              </a>
-
-
+            
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -195,65 +199,41 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </nav>
         <!-- End of Topbar -->
 
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Панель управления</h1>
-            <a href="#" class="d-none d-sm-inline-block dddddddddddddddddddddbtn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Learner's Report</a>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-            <!-- Approach -->
-            <div class="card shadow mb-4">
+          <!-- Approach -->
+          <div class="card shadow mb-4">
+           <div class="card-body">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Управляй своими предметами и временем обучения</h6>
-              </div>
-              <div class="card-body">
+              <h6 class="m-0 font-weight-bold text-primary">Время. ссылки, план, предметы и результаты обучения в одном месте!<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 10rem;" src="http://learner.abtz.ru/img/undraw_learning_2q1h.svg" align="right"  alt=""></h6>
+              
+            </div>
+              <p>Управляй своим самонаправленным обучением. Добавляй предметы в свой план обучения. </p>
                 <div class="page-header">
-                  <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Добро пожаловать в приложение.</h1>
+                    <h1>Привет, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Добро пожаловать в приложение.</h1>
                 </div>
                 <p>
-                  <a href="http://learner.abtz.ru/reset-password.php" class="btn btn-warning">Обновить свой пароль</a>
-                  <a href="http://learner.abtz.ru/logout.php" class="btn btn-danger">Выйти из своей учетной записи</a>
+                    <a href="http://learner.abtz.ru/reset-password.php" class="btn btn-warning">Обновить пароль</a>
+                    <a href="http://learner.abtz.ru/logout.php" class="btn btn-danger">Выйти из аккаунта</a>
                 </p>
-                <p>Изучая необходимые предметы нужно уметь контролировать в длительной перспективе что и сколько изучаешь. Фиксируй время обучения, добавляй свои предметы, смотри и скачивай свои результаты, планируй свои следующие шаги.</p>
-                <p class="mb-0">During learning something new, you should scale your success!</p>
-              </div>
-              <div class="alert alert-primary" role="alert">
-                <ul class="list-group">
-                  <li class="list-group-item active">Как работать с этим приложением:</li>
-                  <li class="list-group-item">1) <a href="http://learner.abtz.ru/add_subject.html" class="alert-link">Добавить свои предметы изучения</a> и распланируй ближайшие шаги</li>
-                  <li class="list-group-item">2) Начни обучение, открыв <a href="http://learner.abtz.ru/timer.html" class="alert-link">Таймер, обратный отсчет до конца занятия</a></li>
-                  <li class="list-group-item">3) Когда таймер закончится зафиксируй результат Предмет+ время изучения в базу приложения</li>
-                  <li class="list-group-item">4) Смотри все предметы и достигнутый результат на<a href="http://learner.abtz.ru/learner_list.html" class="alert-link">странице результатов обучающегося</a></li>
-                  <li class="list-group-item">4) Загрузи допольнительные документы (справки ПА, сертификаты) на страницу своих результатов</li>
-                </ul>
-
-
-              </div>
             </div>
+            <div class="alert alert-primary" role="alert">
+              <ul class="list-group">
+                <li class="list-group-item active">Управляй своим самонаправленным обучением:</li>
+                <li class="list-group-item">1) <a href="http://learner.abtz.ru/add_subject.html" class="alert-link">Добавляй предметы </a> в свой план обучения.</li>
+                <li class="list-group-item">2) Засекай время занятия по <a href="http://learner.abtz.ru/timer.html" class="alert-link">Таймеру</a></li>
+                <li class="list-group-item">3) Добавляй изученное в свой список результатов</li>
+                <li class="list-group-item">4) Смотри, что еще осталось изучить в <a href="http://learner.abtz.ru/learner_list.html" class="alert-link">Списке</a></li>
+                <li class="list-group-item">4)Сохраняй все <a href="http://learner.abtz.ru/links.html" class="alert-link">ссылки</a> для изучения</li>
+              </ul>
 
-            <!-- Illustrations -->
 
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Обучение это привычка!</h6>
-              </div>
-              <div class="card-body">
-                <div class="text-center">
-                  <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="http://learner.abtz.ru/img/undraw_learning_2q1h.svg" alt="">
-                </div>
-                <p>МЫ учимся всю жизнь, мы учимся вместеБ мы учимся и видим результат!</p>
-
-              </div>
             </div>
+          </div>
 
-
-        <!-- /.container-fluid -->
+          
+      <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -292,28 +272,21 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="http://learner.abtz.ru/login.html">Logout</a>
+          <a class="btn btn-primary" href="login.html">Logout</a>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="http://learner.abtz.ru/vendor/jquery/jquery.min.js"></script>
-  <script src="http://learner.abtz.ru/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="http://learner.abtz.ru/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-
-  <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 
