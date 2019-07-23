@@ -1,5 +1,5 @@
 <?php
- $connect = mysqli_connect("p240539.mysql.ihc.ru", "p240539_learn", "akF25366ct", "p240539_learn");
+ $connect = mysqli_connect("localhost", "root", "", "learnerdb");
  $query ="SELECT * FROM subjects ORDER BY ID";
  $result = mysqli_query($connect, $query);
  ?>
@@ -220,11 +220,11 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>№</th>
                     <th>Название предмета</th>
                     <th>Категория</th>
                     <th>Часы изучения</th>
                     <th>Комментарии</th>
+                    <th>Действие</th>
                   </tr>
                 </thead>
                 <?php
@@ -232,11 +232,14 @@
                 {
                       echo '
                       <tr>
-                            <td>'.$row["id"].'</td>
                             <td>'.$row["name"].'</td>
                             <td>'.$row["category"].'</td>
                             <td>'.$row["hours"].'</td>
                             <td>'.$row["comments"].'</td>
+                            <td>
+                              <a href="process.php?delete='.$row["id"].'"
+                                class="btn btn-danger">Удалить</>
+                            </td>
                             </tr>
                             ';
                 }

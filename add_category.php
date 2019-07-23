@@ -2,7 +2,7 @@
 // ----------------------------конфигурация-------------------------- //
 
 
-$backurl="/add_subject.html";  // На какую страничку переходит после отправки письма
+$backurl="/learner/add_subject.html";  // На какую страничку переходит после отправки письма
 
 //---------------------------------------------------------------------- //
 
@@ -11,9 +11,7 @@ $backurl="/add_subject.html";  // На какую страничку перех�
 // Принимаем данные с формы
 
 
-$name = $_POST['name'];
 $category = $_POST['category'];
-$hours = $_POST['hours'];
 $comments = $_POST['comments'];
 
 // Параметры для подключения
@@ -21,7 +19,7 @@ $db_host = "localhost";
 $db_user = "root"; // Логин БД
 $db_password = ""; // Пароль БД
 $db_base = 'learnerdb'; // Имя БД
-$db_table = "subjects"; // Имя Таблицы БД
+$db_table = "category"; // Имя Таблицы БД
 
 // Подключение к базе данных
 $mysqli = new mysqli($db_host,$db_user,$db_password,$db_base);
@@ -31,7 +29,7 @@ if ($mysqli->connect_error) {
     die('Ошибка : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
 }
 
-$result = $mysqli->query("INSERT INTO ".$db_table." (name,category, hours, comments) VALUES ('$name','$category','$hours','$comments')");
+$result = $mysqli->query("INSERT INTO ".$db_table." (category, comments) VALUES ('$category', '$comments')");
 
   if ($result == true){
       echo "Информация занесена в базу данных";
@@ -40,11 +38,9 @@ $result = $mysqli->query("INSERT INTO ".$db_table." (name,category, hours, comme
   }
 
 print "<script language='Javascript'><!--
-function reload() {location = \"$backurl\"}; setTimeout('reload()', 6000);
+function reload() {location = \"$backurl\"}; setTimeout('reload()', 2000);
 //--></script>
-<p>Имя: $name</p>
 <p>Категория: $category</p>
-<p>Часы: $hours</p>
 <p>Сообщение: $comments</p>
 <p>Сообщение отправлено! Подождите, сейчас вы будете перенаправлены на главную страницу...</p>";
 exit;
