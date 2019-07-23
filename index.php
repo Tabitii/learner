@@ -9,7 +9,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 ?>
 <?php
- $connect = mysqli_connect("p240539.mysql.ihc.ru", "p240539_learn", "akF25366ct", "p240539_learn");
+ $connect = mysqli_connect("localhost", "root", "", "learnerdb");
  $query ="SELECT * FROM subjects ORDER BY ID";
  $result = mysqli_query($connect, $query);
  ?>
@@ -173,7 +173,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               </a>
 
 
-            
+
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -207,7 +207,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
            <div class="card-body">
               <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Время. ссылки, план, предметы и результаты обучения в одном месте!<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 10rem;" src="http://learner.abtz.ru/img/undraw_learning_2q1h.svg" align="right"  alt=""></h6>
-              
+
             </div>
               <p>Управляй своим самонаправленным обучением. Добавляй предметы в свой план обучения. </p>
                 <div class="page-header">
@@ -221,7 +221,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <div class="alert alert-primary" role="alert">
               <ul class="list-group">
                 <li class="list-group-item active">Управляй своим самонаправленным обучением:</li>
-                <li class="list-group-item">1) <a href="http://learner.abtz.ru/add_subject.html" class="alert-link">Добавляй предметы </a> в свой план обучения.</li>
+                <li class="list-group-item">1) <a href="http://learner.abtz.ru/add_subject.html" class="alert-link">Добавляй категории  предметов</a> в свой план обучения согласно учебному плану/ФГОС.</li>
+                <li class="list-group-item">2) <a href="http://learner.abtz.ru/add_subject.html" class="alert-link">Добавляй предметы </a> в свой план обучения.</li>
                 <li class="list-group-item">2) Засекай время занятия по <a href="http://learner.abtz.ru/timer.html" class="alert-link">Таймеру</a></li>
                 <li class="list-group-item">3) Добавляй изученное в свой список результатов</li>
                 <li class="list-group-item">4) Смотри, что еще осталось изучить в <a href="http://learner.abtz.ru/learner_list.html" class="alert-link">Списке</a></li>
@@ -232,7 +233,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>
           </div>
 
-          
+
       <!-- /.container-fluid -->
 
       </div>

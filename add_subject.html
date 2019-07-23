@@ -210,11 +210,17 @@
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Категоря предмета</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="category">
-                  <option>Математика</option>
-                  <option>Русский язык</option>
-                  <option>Английский язык</option>
-                  <option>Окружающий мир</option>
-                  <option>Другое</option>
+                  <?php
+                   $connect = mysqli_connect("localhost", "root", "", "learnerdb");
+                   $query ="SELECT category FROM category";
+                   $result = mysqli_query($connect, $query);
+                   while(list($category) = mysqli_fetch_row($result)){
+                      {
+                          echo '<option value="'.$category.'">'.$category.'</option>';
+                      }
+                   mysqli_close($connect);
+                   }
+                   ?>
                 </select>
               </div>
               <div class="form-group">
@@ -231,6 +237,29 @@
 
       </div></h1>
 
+      <!-- Page Heading -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h1 class="h3 mb-4 text-gray-800">Добавить новую категорию предмета</h1>
+        </div>
+        <div class="card-body">
+
+      <div class="row">
+        <form action="add_category.php" method="POST">
+          <div class="form-group-center">
+            <label for="exampleInputName1">Название категории</label>
+            <input type="text" name= "category" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Введите название">
+            <small id="nameHelp" class="form-text text-muted">Введите свою формулироваку категорию (ФГОС, по учебному плану)</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Комментарии к категории</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name= "comments"></textarea>
+          </div>
+      <button type="submit" class="btn btn-primary">Добавить</button>
+      </form>
+
+
+    </div></h1>
           <!-- End of Main Content -->
 
       <!-- Footer -->
