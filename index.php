@@ -223,10 +223,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <li class="list-group-item active">Управляй своим самонаправленным обучением:</li>
                 <li class="list-group-item">1) <a href="http://learner.abtz.ru/add_subject.html" class="alert-link">Добавляй категории  предметов</a> в свой план обучения согласно учебному плану/ФГОС.</li>
                 <li class="list-group-item">2) <a href="http://learner.abtz.ru/add_subject.html" class="alert-link">Добавляй предметы </a> в свой план обучения.</li>
-                <li class="list-group-item">2) Засекай время занятия по <a href="http://learner.abtz.ru/timer.html" class="alert-link">Таймеру</a></li>
-                <li class="list-group-item">3) Добавляй изученное в свой список результатов</li>
-                <li class="list-group-item">4) Смотри, что еще осталось изучить в <a href="http://learner.abtz.ru/learner_list.html" class="alert-link">Списке</a></li>
-                <li class="list-group-item">4)Сохраняй все <a href="http://learner.abtz.ru/links.html" class="alert-link">ссылки</a> для изучения</li>
+                <li class="list-group-item">3) Засекай время занятия по <a href="http://learner.abtz.ru/timer.html" class="alert-link">Таймеру</a></li>
+                <li class="list-group-item">4) Добавляй изученное в свой список результатов</li>
+                <li class="list-group-item">5) Смотри, что еще осталось изучить в <a href="http://learner.abtz.ru/learner_list.html" class="alert-link">Списке</a></li>
+                <li class="list-group-item">6) Сохраняй все <a href="http://learner.abtz.ru/links.html" class="alert-link">ссылки</a> для изучения</li>
               </ul>
 
 
